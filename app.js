@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-
 app.get("/",function(req,res) {
-  res.render("home",
+
+res.render("home",
 {startingContent:homeStartingContent,
 posts:posts
 }
@@ -31,9 +31,9 @@ posts:posts
 });
 
 app.get("/contact",function(req,res) {
-  res.render("contact",
-{contactContent:contactContent
 
+res.render("contact",
+{contactContent:contactContent
 }
 
 );
@@ -42,26 +42,31 @@ app.get("/contact",function(req,res) {
 app.get("/about",function(req,res) {
   res.render("about",
 {aboutContent:aboutContent
-
 }
 
 );
 });
 
+
+
 app.get("/compose",function(req,res) {
   res.render("compose");
 });
 
+
 app.post("/compose",function(req,res){
 
-  const post = {title:req.body.blogTitle,
-    content:req.body.blogContent
+  const post = {
+  title:req.body.blogTitle,
+  content:req.body.blogContent
   };
 
 posts.push(post);
 
 res.redirect("/");
-})
+
+});
+
 
 app.get('/posts/:postName', (req,res) =>{
 
@@ -71,16 +76,16 @@ app.get('/posts/:postName', (req,res) =>{
     const storedTitle = _.lowerCase(postElement.title);
 
 if (storedTitle === requestedTitle) {
-  console.log("match found");
+res.render("post",
+{title:postElement.title,
+content:postElement.content
 }
 
-else {
-  console.log("fail");
-}
+)};
 
-  })
+});
 
-})
+});
 
 
 
