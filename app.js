@@ -23,8 +23,8 @@ app.use(express.static("public"));
 
 app.get("/",function(req,res) {
   res.render("home",
-{startingContent:homeStartingContent
-
+{startingContent:homeStartingContent,
+posts:posts
 }
 
 );
@@ -59,7 +59,7 @@ app.post("/compose",function(req,res){
   };
 
 posts.push(post);
-console.log(posts);
+
 res.redirect("/");
 })
 
