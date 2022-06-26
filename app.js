@@ -22,8 +22,26 @@ app.get("/",function(req,res) {
 {startingContent:homeStartingContent
 
 }
-);
 
+);
+});
+
+app.get("/contact",function(req,res) {
+  res.render("contact",
+{contactContent:contactContent
+
+}
+
+);
+});
+
+app.get("/about",function(req,res) {
+  res.render("about",
+{aboutContent:aboutContent
+
+}
+
+);
 });
 
 
