@@ -4,10 +4,13 @@
 
 <p> <%=startingContent %> </p>
 
-<% console.log(posts); %>
+<% posts.forEach(function(postElement) { %>
+
+<h1> <%= postElement.title %> </h1>
+<p> <%= postElement.content %> </p>
 
 
-
+<% }); %>
 
 
 <%- include("partials/footer"); -%>
