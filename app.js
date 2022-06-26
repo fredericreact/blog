@@ -49,8 +49,12 @@ app.get("/compose",function(req,res) {
 });
 
 app.post("/compose",function(req,res){
-  var blogText = req.body.blogPost;
-  console.log(blogText);
+
+  const post = {title:req.body.blogTitle,
+    content:req.body.blogContent
+  };
+  console.log(post);
+res.redirect("/");
 })
 
 
